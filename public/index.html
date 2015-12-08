@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/hamburgermenu.css">
-
+    <script src="//cdn.auth0.com/js/lock-7.12.min.js" defer></script>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <title>buy4me</title>
   </head>
 
@@ -15,35 +17,54 @@
 
     <div id="menu">
     <div id="menutop" class="container">
-      <section id="logo">logo</section>
+      <section id="logo">Buy4me</section>
     </div>
     <div id="menubottom">
-      <section id="auth">AUTH AREA</section>
-      <section id="profile">THIS IS A PROFILE</section>
-      <section id="orders">MY ORDERS</section>
-      <section id="wishlist">MY WISHLIST</section>
+      <section id="auth">
+        <button class="button" id="btn-login">Log In</button>
+        <button class="button" id="btn-logout">Log Out</button>
+      </section>
+      <section id="profile">
+        <nav>
+          <p>Hello <span id="authUser"></span>!</p>
+        </nav>
+      </section>
+      <section id="button_myorderspage" class="button"><a href="javascript:SelectDivWithClick('myorderspage')">My Orders :)</a></section>
+      <section id="button_publicpage" class="button"><a href="javascript:SelectDivWithClick('publicpage')">Public Landing Page</a></section>
+      <section id="button_userpage" class="button"><a href="javascript:SelectDivWithClick('userpage')">User Page</a></section>
+      <section id="button_dataentrypage" class="button"><a href="javascript:SelectDivWithClick('dataentrypage')">Data Entry Page</a></section>
+
     </div>
     </div>
 
 
     <div id="main">
+
       <section id="top">1 Top</section>
 
-      <section id="publicpage">2 Public Landing Page
+      <section id="myorderspage" style="display:none;">2 My Orders Page
         <div class="container">
           <div id="columnleft">A Column Left</div>
           <div id="columnright">B Column Right</div>
         </div>
       </section>
 
-      <section id="userpage">3 User Page
+      <section id="publicpage" class="container" style="display:block;">3 Public Landing Page
+        <div class="container">
+          <main id="articles"></main>  <!-- At the moment - this is where mongo response goes to -->
+          <div id="columnleft">A Column Left</div>
+          <div id="columnright">B Column Right</div>
+        </div>
+      </section>
+
+      <section id="userpage" style="display:none;">4 User Page
         <div class="container">
           <div id="columnleft">A Column Left</div>
           <div id="columnright">B Column Right</div>
         </div>
       </section>
 
-      <section id="dataentrypage">4 Data Entry Page
+      <section id="dataentrypage" style="display:none;">5 Data Entry Page
         <div class="container">
           <div id="columnleft">A Column Left</div>
           <div id="columnright">B Column Right</div>
@@ -51,11 +72,27 @@
       </section>
 
 
-      <section id="bottom">5 Bottom </section>
+
+
+      <section id="bottom">6 Bottom </section>
     </div>
 
-    <div id="footer">4 Footer</div>
+    <div id="footer">Created with <i class="fa fa-heart"></i> by @peonicles and @ongmin</div>
+
+    <script src="js/script.js"></script>
 
     <script src="js/hamburgermenu.js"></script>
+    <!-- <script src="js/switchpage.js"></script> -->
+    <script type="text/javascript">
+    function SelectDivWithClick(div) {
+      var d1 = document.getElementById(div)
+      if (d1.style.display == "none" ) {
+        d1.style.display = "block"
+      } else {
+        d1.style.display = "none"
+      }
+    }
+    </script>
+
   </body>
 </html>

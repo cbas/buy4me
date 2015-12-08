@@ -1,21 +1,25 @@
 
 body {
   display: block;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  text-align: left;
 }
 
 #logo {
-  text-tranform: uppercase;
+  /*text-tranform: uppercase;*/
+  font-family: Open sans, sans-serif;
+  font-size: 16px;
   vertical-align: baseline;
-  letter-spacing: 13px;
+  letter-spacing: 5px;
   text-align: center;
-  font-family: Arvo;
   font-weight: bold;
   position: relative;
-  align-self: flex-start;
-  top: 0;
-  left: 0;
-  width: auto;
+
 }
 
 #header {
@@ -26,20 +30,42 @@ body {
 #menu {     /* Note that there's also styling on hamburger sheet */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   background: #f0f0f0;
 }
 
 #menutop {
-  position: absolute;
+  display: flex;
   top: 0;
   left: 0;
   width: 100%;
 }
 
 #menu section {
-  padding: 10px 5px 10px 5px;
+  padding: 10px 2px 10px 2px;
 }
+
+#menu a {
+    color: #999;
+    border: none;
+}
+
+
+/* Parent container of the menu */
+#menu {
+    display: flex;
+    flex-direction: column;
+    margin-left: -150px; /* "#menu" width */
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+    overflow-y: auto;
+    /*-webkit-overflow-scrolling: touch;*/
+}
+
 
 #mainpage {
   display: flex;
@@ -54,6 +80,7 @@ body {
   padding: 20px 5px 20px 5px;
 }
 
+
 #columnleft, #columnright {
 border-style: solid;
 border-color: red;
@@ -61,16 +88,15 @@ width: 40%;
 flex-basis: auto;
 margin: auto;
 }
-/*#main{
-  position: relative;
-  width: 100%;
-}*/
 
 #footer {
   position: fixed;
   bottom: 0;
-  left: 0;
+  right: 0;
   background: #f0f0f0;
+  text-align: right;
+  vertical-align: middle;
+  padding: 2px 10px 2px 10px;
   height: 30px;
   width: 100%;
 }
