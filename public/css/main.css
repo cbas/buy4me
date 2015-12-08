@@ -1,0 +1,57 @@
+
+body {
+  display: block;
+  font-family: sans-serif;
+}
+
+#logo {
+  text-tranform: uppercase;
+  vertical-align: baseline;
+  letter-spacing: 13px;
+  text-align: center;
+  font-family: Arvo;
+  font-weight: bold;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+}
+
+#menu {     /* Note that there's also styling on hamburger sheet */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #f0f0f0;
+}
+
+#menu section {
+  padding: 10px 5px 10px 5px;
+}
+
+#middle {
+  display: flex;
+  padding: 20px 5px 20px 5px;
+  justify-content: space-between;
+}
+
+#columnleft, #columnright {
+border-style: solid;
+border-color: red;
+width: 30%;
+}
+/*#main{
+  position: relative;
+  width: 100%;
+}*/
+
+#footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+section {
+  border-style: solid;
+  border-color: black;
+}
