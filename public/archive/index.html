@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hackerest</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <!-- Auth0Lock script -->
+    <script src="//cdn.auth0.com/js/lock-7.12.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Hackerest</h1>
+          <nav>
+            <p>Name: <span id="authUser"></span></p>
+            <button class="button" id="btn-login">Log In</button>
+            <button class="button" id="btn-logout">Log Out</button>
+            <ul>
+              <li>Add new article</li>
+              <li>
+                <input id="btn-login" class="btn-login" type="submit" />
+                Sort by Topic : <select>
+                                    <option value="javascript">Javascript</option>
+                                    <option value="node">Node</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="science">Science</option>
+                                  </select>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      <main id="articles">
+
+      </main>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

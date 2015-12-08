@@ -1,0 +1,166 @@
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Menu transition for push in and out */
+#layout,
+#menu,
+.menu-link {
+    transition: all 0.2s ease-out;
+}
+
+/* Parent container that contains the menu and main area. */
+#layout {
+    position: relative;
+    padding-left: 0;
+}
+    #layout.active #menu {
+        left: 150px;
+        width: 150px;
+    }
+
+    #layout.active .menu-link {
+        left: 150px;
+    }
+
+/* Parent container of the menu */
+#menu {
+    margin-left: -150px; /* "#menu" width */
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+    /* All anchors inside the menu will be styled like this. */
+    #menu a {
+        color: #999;
+        border: none;
+        padding: 0.6em 0 0.6em 0.6em;
+    }
+
+    /* Change color of the anchor links on hover/focus. */
+        #menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
+            background: #333;
+        }
+
+    /* This styles the selected menu item `<li>`. */
+    #menu .pure-menu-selected,
+    #menu .pure-menu-heading {
+        background: #1f8dd6;
+    }
+
+    /* This styles a link within a selected menu item `<li>`. */
+        #menu .pure-menu-selected a {
+            color: #fff;
+        }
+
+    /* This styles the menu heading. */
+    #menu .pure-menu-heading {
+        font-size: 110%;
+        color: #fff;
+        margin: 0;
+    }
+
+
+/* Button to open/close */
+
+/* This is the hamburger box. om nom nom :) */
+.menu-link {
+    position: fixed;
+    display: block; /* show this only on small screens */
+    top: 0;
+    left: 0; /* "#menu width" */
+    background: #000;
+    background: rgba(0,0,0,0.7);
+    font-size: 10px; /* change this value to increase/decrease button size */
+    z-index: 10;
+    width: 2em;
+    height: auto;
+    padding: 2.1em 1.6em;
+}
+
+/* This is to show the three lines */
+    .menu-link span {
+        position: relative;
+        display: block;
+    }
+
+    .menu-link span,
+    .menu-link span:before,
+    .menu-link span:after {
+        background-color: #fff;
+        width: 100%;
+        height: 0.2em;
+    }
+
+        .menu-link span:before,
+        .menu-link span:after {
+            position: absolute;
+            margin-top: -0.6em;
+            content: " ";
+        }
+
+        .menu-link span:after {
+            margin-top: 0.6em;
+        }
+
+
+/* Hides the msnu at below 481px */
+/* Narrow */
+@media only screen and (max-width: 480px) {
+  #layout.active {
+      position: relative;
+      left: 150px;
+  }
+}
+
+/* Medium - nothing going on here yet */
+@media only screen and (min-width: 481px) and (max-width: 960px) {
+  #layout {
+      padding-left: 150px; /* left col width "#menu" */
+      left: 0;
+  }
+
+  #menu {
+      left: 150px;
+  }
+
+  .menu-link {
+      position: fixed;
+      left: 150px;
+      display: none;
+  }
+
+  #layout.active .menu-link {
+      left: 150px;
+  }
+}
+
+
+/* Wide */
+@media only screen and (min-width: 961px) {
+  #layout {
+      padding-left: 150px; /* left col width "#menu" */
+      left: 0;
+  }
+
+  #menu {
+      left: 150px;
+  }
+
+  .menu-link {
+      position: fixed;
+      left: 150px;
+      display: none;
+  }
+
+  #layout.active .menu-link {
+      left: 150px;
+  }
+}
