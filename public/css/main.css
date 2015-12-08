@@ -11,6 +11,11 @@ body {
   text-align: center;
   font-family: Arvo;
   font-weight: bold;
+  position: relative;
+  align-self: flex-start;
+  top: 0;
+  left: 0;
+  width: auto;
 }
 
 #header {
@@ -25,20 +30,36 @@ body {
   background: #f0f0f0;
 }
 
+#menutop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 #menu section {
   padding: 10px 5px 10px 5px;
 }
 
-#middle {
+#mainpage {
   display: flex;
   padding: 20px 5px 20px 5px;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 5px 20px 5px;
 }
 
 #columnleft, #columnright {
 border-style: solid;
 border-color: red;
-width: 30%;
+width: 40%;
+flex-basis: auto;
+margin: auto;
 }
 /*#main{
   position: relative;
@@ -46,9 +67,12 @@ width: 30%;
 }*/
 
 #footer {
-  position: relative;
+  position: fixed;
   bottom: 0;
   left: 0;
+  background: #f0f0f0;
+  height: 30px;
+  width: 100%;
 }
 
 section {

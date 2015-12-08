@@ -3,25 +3,25 @@
   var menu = document.getElementById('menu')
   var menuLink = document.getElementById('menuLink')
 
-  function toggleClass (element, className) {
-    var classes = element.className.split(/\s+/)
+  function toggleClass (element, newClass) {
+    var classes = Array.from((element.className).split(/\s+/))
     var length = classes.length
-    var i = 0
+    console.log(classes)
 
-    for (; i < length; i++) {
-      if (classes[i] === className) {
-        classes.splice(i, 1)
-        break
+    function checkStatus (item, index) {
+      if (item === newClass) {
+        classes.splice(index, 1)
       }
-    }
-    // The className is not found
+    } // end of func checkStatus
+
+    classes.forEach(checkStatus)
+
     if (length === classes.length) {
-      classes.push(className)
+      classes.push(newClass)
     }
 
     element.className = classes.join(' ')
   }
-
   menuLink.onclick = function (e) {
     var active = 'active'
 
