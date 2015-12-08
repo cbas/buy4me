@@ -1,5 +1,7 @@
+'use strict'
+
 var lock = new window.Auth0Lock(
-  '61SQpdQ85qC0lIBXHO9kuqFWrbidQwjy',
+  'cIIrD1MBSLMcYdY6f1rYi6KtU2IDHXtz',
   'peonicles.auth0.com'
   )
 
@@ -44,14 +46,19 @@ function getAllArticles () {
     cache: false
   }).then(function (response) {
     return response.json().then(function (json) {
-      var articles = document.getElementById('articles')
-      json.forEach(function (item) {
-        var newArticle = document.createElement('article')
-        var link = document.createElement('a')
-        var newTitle = document.createTextNode(item['title'])
-        link.setAttribute('href', item['url'])
-        link.appendChild(newTitle)
-        newArticle.appendChild(link)
+      const articles = document.getElementById('articles')
+      json.forEach(item => {
+        const newArticle = document.createElement('article')
+
+        for (var property in item) {
+          if (item.hasOwnProperty(property) && property !== '_id') {
+            console.log(property)
+            let newParagraph = document.createElement('p')
+            newParagraph.textContent = item[property]
+            newArticle.appendChild(newParagraph)
+          }
+        }
+
         articles.appendChild(newArticle)
       })
     })

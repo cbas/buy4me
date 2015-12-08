@@ -4,11 +4,11 @@
   "scripts": {
   },
   "env": {
-    "MDB_USR": { "required": true },
-    "MDB_PWD": { "required": true },
-    "MDB_URL": { "required": true },
-    "AUTH0_SECRET": { "required": true },
-    "AUTH0_ID": { "required": true }
+    "BUY4ME_MDB_USR": { "required": true },
+    "BUY4ME_MDB_PWD": { "required": true },
+    "BUY4ME_MDB_URL": { "required": true },
+    "BUY4ME_AUTH0_SECRET": { "required": true },
+    "BUY4ME_AUTH0_ID": { "required": true }
   },
   "addons": [
 
