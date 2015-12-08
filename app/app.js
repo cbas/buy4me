@@ -3,20 +3,20 @@ const app = express()
 const mongo = require('mongodb').MongoClient
 const bodyParser = require('body-parser')
 // const cors = require('cors')
-var jwt = require('express-jwt')
+// var jwt = require('express-jwt')
 
-var jwtCheck = jwt({
-  secret: new Buffer(process.env.AUTH0_SECRET, 'base64'),
-  audience: process.env.AUTH0_ID
-})
+// var jwtCheck = jwt({
+//   secret: new Buffer(process.env.BUY4ME_AUTH0_SECRET, 'base64'),
+//   audience: process.env.BUY4ME_AUTH0_ID
+// })
 
 const dbUri = 'mongodb://' +
-  process.env.MDB_USR + ':' +
-  process.env.MDB_PWD + '@' +
-  process.env.MDB_URL
+  process.env.BUY4ME_MDB_USR + ':' +
+  process.env.BUY4ME_MDB_PWD + '@' +
+  process.env.BUY4ME_MDB_URL
 
 app.use(express.static('public'))
-app.use(jwtCheck)
+// app.use(jwtCheck)
 app.use(bodyParser.json())
 // app.use(cors())
 
