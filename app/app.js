@@ -30,7 +30,7 @@ mongo.connect(dbUri, (err, db) => {
 
 // GET /items returns entire items collection
 app.get('/items', (req, res) => {
-  console.log('getting all items from db')
+  console.log('GET /items')
 
   dbconn.collection('items')
     .find() // let front end decide what to do with _id
@@ -46,8 +46,40 @@ app.post('/items', (req, res) => {
   const item = req.body
   item.date = new Date()  // insert date for sorting
 
-  console.log('inserting item to db')
+  console.log('POST /items')
   res.json(dbconn.collection('items').insert(item))
+})
+
+// GET /travellers, return ALL travellers
+app.get('/travellers/:country', (req, res) => {
+  console.log('GET /travellers/:country')
+
+  dbconn.collection('items')
+    .find({
+      type: 'buying',
+      itemSourceCountry: req.params.country
+    })
+    .sort({ date: 1 })  // sort by date
+    .toArray((err, item) => {
+      if (err) return err
+      res.send(JSON.stringify(item, null, 2))
+    })
+})
+
+// GET /requestors/:country, return requestors in :country
+app.get('/requestors/:country', (req, res) => {
+  console.log('GET /requestors/:country')
+
+  dbconn.collection('items')
+    .find({
+      type: 'requesting',
+      homeCountry: req.params.country
+    })
+    .sort({ date: 1 })  // sort by date
+    .toArray((err, item) => {
+      if (err) return err
+      res.send(JSON.stringify(item, null, 2))
+    })
 })
 
 module.exports = app
