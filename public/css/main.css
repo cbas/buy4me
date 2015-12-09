@@ -10,6 +10,15 @@ a {
   text-align: left;
 }
 
+.p-noline {
+  line-height: 0.1;
+}
+
+object {
+  border-style: solid;
+  border-color: black;
+}
+
 #logo {
   /*text-tranform: uppercase;*/
   font-family: Open sans, sans-serif;
@@ -76,7 +85,8 @@ a {
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 20px 5px 20px 5px;
 }
 
@@ -87,6 +97,7 @@ border-color: red;
 width: 40%;
 flex-basis: auto;
 margin: auto;
+display: inline;
 }
 
 #footer {

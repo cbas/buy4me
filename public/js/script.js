@@ -37,6 +37,8 @@ if (id_token) {
   })
 }
 
+// Fetch functions
+
 function getAllArticles () {
   window.fetch('/items', {
     headers: {
@@ -46,22 +48,24 @@ function getAllArticles () {
     cache: false
   }).then(function (response) {
     return response.json().then(function (json) {
-      const articles = document.getElementById('articles')
+      const articles = document.getElementById('data-publicpage')
       json.forEach(item => {
-        const newArticle = document.createElement('article')
+        const newObject = document.createElement('object')
+        newObject.className = 'p-noline'
 
         for (var property in item) {
           if (item.hasOwnProperty(property) && property !== '_id') {
             console.log(property)
-            let newParagraph = document.createElement('p')
-            newParagraph.textContent = item[property]
-            newArticle.appendChild(newParagraph)
+            let newLine = document.createElement('p')
+            newLine.textContent = item[property]
+            newObject.appendChild(newLine)
           }
         }
 
-        articles.appendChild(newArticle)
+        articles.appendChild(newObject)
       })
     })
   })
 }
-getAllArticles()
+
+setInterval(getAllArticles(), 30000) // Fetches every 30s
