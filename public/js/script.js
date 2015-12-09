@@ -76,6 +76,12 @@ function getAllArticles (endpoint, containerId) {
 //   fetchData(endpoint, containerId)
 // }
 
-setInterval(getAllArticles('/items', 'data-publicpage'), 30000) // Fetches every 30s
+// function getRequestedArticles (endpoint, containerId) {
+//   fetchData(endpoint, containerId)
+// }
+
+setInterval(getAllArticles('/items', 'place-publicpage'), 30000) // Fetches every 30s
 
 // getCountries('/country', 'place-countrypage')
+
+// getRequestedArticles ('/items/requested', 'place-myorders')
