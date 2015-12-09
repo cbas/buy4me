@@ -20,36 +20,34 @@ app.use(jwtCheck)
 app.use(bodyParser.json())
 // app.use(cors())
 
-app.get('/items', (req, res) => {
-  // res.send('root')
-
-  mongo.connect(dbUri, (err, db) => {
-    if (err) throw err
-    console.log('getting all items from db')
-
-    db.collection('items')
-      .find() // let front end decide what to do with _id
-      .sort({ date: 1 })  // sort by date
-      .toArray((err, item) => {
-        if (err) return err
-        // console.log(item)
-        res.send(JSON.stringify(item, null, 2))
-        db.close()
-      })
-  })
-  // res.json(result)
+// setup persistent connection to database
+var dbconn
+mongo.connect(dbUri, (err, db) => {
+  if (err) throw err
+  console.log('connected to db')
+  dbconn = db
 })
 
+// GET /items returns entire items collection
+app.get('/items', (req, res) => {
+  console.log('getting all items from db')
+
+  dbconn.collection('items')
+    .find() // let front end decide what to do with _id
+    .sort({ date: 1 })  // sort by date
+    .toArray((err, item) => {
+      if (err) return err
+      res.send(JSON.stringify(item, null, 2))
+    })
+})
+
+// POST /items, inserts new item to database
 app.post('/items', (req, res) => {
   const item = req.body
   item.date = new Date()  // insert date for sorting
-  mongo.connect(dbUri, (err, db) => {
-    if (err) throw err
-    console.log('inserting 1 item to db')
 
-    res.json(db.collection('items').insert(item))
-    db.close
-  })
+  console.log('inserting item to db')
+  res.json(dbconn.collection('items').insert(item))
 })
 
 module.exports = app
