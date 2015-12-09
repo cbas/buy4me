@@ -33,7 +33,7 @@
       <section id="button_publicpage" class="button"><a href="javascript:SelectDivWithClick('publicpage')">Public Landing Page</a></section>
       <section id="button_userpage" class="button"><a href="javascript:SelectDivWithClick('userpage')">User Page</a></section>
       <section id="button_dataentrypage" class="button"><a href="javascript:SelectDivWithClick('dataentrypage')">Data Entry Page</a></section>
-
+      <section id="button_countrypage" class="button"><a href="javascript:SelectDivWithClick('countrypage')">Country Page</a></section>
     </div>
     </div>
 
@@ -50,22 +50,28 @@
       </section>
 
       <section id="publicpage" class="container" style="display:block;">3 Public Landing Page
-        <div class="container">
-          <main id="articles"></main>  <!-- At the moment - this is where mongo response goes to -->
-          <div id="columnleft">A Column Left</div>
+        <articles class="container" id="data-publicpage">
+          <div id="columnleft">A Column Left></div>
           <div id="columnright">B Column Right</div>
-        </div>
+        </article>
       </section>
 
       <section id="userpage" style="display:none;">4 User Page
-        <div class="container">
-          <div id="columnleft">A Column Left</div>
+        <div class="container" id="data-userpage">
+          <div id="data-yourorders">A Column Left</div>
           <div id="columnright">B Column Right</div>
         </div>
       </section>
 
       <section id="dataentrypage" style="display:none;">5 Data Entry Page
-        <div class="container">
+        <div class="container" id="data-userpage">
+          <div id="columnleft">A Column Left</div>
+          <div id="columnright">B Column Right</div>
+        </div>
+      </section>
+
+      <section id="countrypage" style="display:none;">6 Country Page
+        <div class="container" id="data-countrypage">
           <div id="columnleft">A Column Left</div>
           <div id="columnright">B Column Right</div>
         </div>
@@ -73,8 +79,7 @@
 
 
 
-
-      <section id="bottom">6 Bottom </section>
+      <section id="bottom">7 Bottom </section>
     </div>
 
     <div id="footer">Created with <i class="fa fa-heart"></i> by @peonicles and @ongmin</div>
