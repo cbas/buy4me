@@ -24,49 +24,6 @@
         left: 150px;
     }
 
-/* Parent container of the menu */
-#menu {
-    margin-left: -150px; /* "#menu" width */
-    width: 150px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1000; /* so the menu or its navicon stays above all content */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-    /* All anchors inside the menu will be styled like this. */
-    #menu a {
-        color: #999;
-        border: none;
-        padding: 0.6em 0 0.6em 0.6em;
-    }
-
-    /* Change color of the anchor links on hover/focus. */
-        #menu .pure-menu li a:hover,
-        #menu .pure-menu li a:focus {
-            background: #333;
-        }
-
-    /* This styles the selected menu item `<li>`. */
-    #menu .pure-menu-selected,
-    #menu .pure-menu-heading {
-        background: #1f8dd6;
-    }
-
-    /* This styles a link within a selected menu item `<li>`. */
-        #menu .pure-menu-selected a {
-            color: #fff;
-        }
-
-    /* This styles the menu heading. */
-    #menu .pure-menu-heading {
-        font-size: 110%;
-        color: #fff;
-        margin: 0;
-    }
-
 
 /* Button to open/close */
 
