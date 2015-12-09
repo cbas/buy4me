@@ -68,14 +68,17 @@ function fetchData (endpoint, containerId) {
   })
 }
 
+function getCountries (endpoint, containerId) {
+  fetchData(endpoint, containerId)
+}
+getCountries('/country', 'place-countrypage')
+
 function getAllArticles (endpoint, containerId) {
   fetchData(endpoint, containerId)
 }
 
-// function getCountries (endpoint, containerId) {
-//   fetchData(endpoint, containerId)
-// }
+getAllArticles('/items', 'data-publicpage')
 
-setInterval(getAllArticles('/items', 'data-publicpage'), 30000) // Fetches every 30s
+// setInterval(getAllArticles(null, null), 30000)
 
-// getCountries('/country', 'place-countrypage')
+// setInterval(getAllArticles('/items', place-items), 30000) // Fetches every 30s
