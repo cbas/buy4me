@@ -68,20 +68,12 @@ function fetchData (endpoint, containerId) {
   })
 }
 
-function getAllArticles (endpoint, containerId) {
-  fetchData(endpoint, containerId)
-}
+function getAllArticles (endpoint, containerId) { fetchData(endpoint, containerId) }
+function getRequestedArticles (endpoint, containerId) { fetchData(endpoint, containerId) }
+function getAllTravellers (endpoint, containerId) { fetchData(endpoint, containerId) }
+function getAllRequestors (endpoint, containerId) { fetchData(endpoint, containerId) }
 
-// function getCountries (endpoint, containerId) {
-//   fetchData(endpoint, containerId)
-// }
-
-// function getRequestedArticles (endpoint, containerId) {
-//   fetchData(endpoint, containerId)
-// }
-
-setInterval(getAllArticles('/items', 'place-publicpage'), 30000) // Fetches every 30s
-
-// getCountries('/country', 'place-countrypage')
-
-// getRequestedArticles ('/items/requested', 'place-myorders')
+setInterval(getAllArticles('/items', 'place-publicpage'), 60000) // Fetches every 60s
+setInterval(getRequestedArticles('/items/requested', 'place-myorders'), 60000)
+setInterval(getAllTravellers('/travellers/france', 'place-countrypage'), 60000)
+setInterval(getAllRequestors('/requestors/singapore', 'place-trendingpage'), 60000)
